@@ -1,0 +1,10 @@
+#!/bin/bash
+
+local=${PWD}
+remote=${PWD##*/}
+
+read -p "Local: $local     Web: $remote (S/n):  "  -n 1 -e
+if [[ $REPLY =~ ^[Ss]$ ]]
+then
+    rclone copy "$local" "Gdrive:/Matérias USP Passadas/$remote" -v
+fi 

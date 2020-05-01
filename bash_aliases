@@ -1,0 +1,8 @@
+alias gsm='gnome-system-monitor'
+alias calc='gnome-calculator'
+alias spotify='flatpak run com.spotify.Client&'
+alias ps4='nohup /home/razi/Documents/./Chiaki-v1.0.3-Linux-x86_64.AppImage >/dev/null 2>&1 &!'
+alias mvga='nohup xviewer /home/razi/Documents/listasMVGA.png | evince /home/razi/Documents/Livros/MVGA/Clau.pdf >/dev/null 2>&1 &!'
+alias codeblocks='flatpak run org.codeblocks.codeblocks'
+alias lofi='/home/razi/bin/lofi'
+alias stoplofi='/home/razi/bin/stoplofi'

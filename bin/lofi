@@ -1,0 +1,4 @@
+#!/bin/bash
+
+exec nohup cvlc --preferred-resolution 240 --no-video --no-ts-trust-pcr --ts-seek-percent https://www.youtube.com/watch?v=5qap5aO4i9A &>/dev/null &
+exec echo $! > lofiPID.txt
