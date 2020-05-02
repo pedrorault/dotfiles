@@ -20,7 +20,8 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
-
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'qpkorr/vim-renamer'
 call plug#end()
 colorscheme gruvbox
 set background=dark
