@@ -119,3 +119,5 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 PROMPT_DIRTRIM=2
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
