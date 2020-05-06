@@ -19,12 +19,18 @@ set shortmess+=c
 set signcolumn=yes
 set undodir=~/.vim/undodir
 set undofile
-set incsearch
 set encoding=UTF-8
+"Regex configs
+set hlsearch
+set incsearch
+
+"Indentation per language
+autocmd FileType html, css, js setlocal shiftwidth=2 tabstop=2
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
+autocmd FileType c,cpp  setlocal shiftwidth=4 tabstop=4 smartindent
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 
 call plug#begin('~/.vim/plugged')
 Plug 'qpkorr/vim-renamer'
@@ -44,7 +50,6 @@ call plug#end()
 
 colorscheme gruvbox 
 set background=dark
-
 
 " Nerdtree automatically when opening dir
 autocmd StdinReadPre * let s:std_in=1
