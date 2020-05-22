@@ -7,6 +7,7 @@ set tabstop=2 softtabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
+set relativenumber
 set nu
 set nowrap
 set smartcase
@@ -21,7 +22,6 @@ set undodir=~/.vim/undodir
 set undofile
 set encoding=UTF-8
 "Regex configs
-set hlsearch
 set incsearch
 
 "Indentation per language
@@ -41,6 +41,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ThePrimeagen/vim-be-good'
 
 " ==Themes and visual==
 Plug 'morhetz/gruvbox'
@@ -54,13 +55,54 @@ set background=dark
 " Nerdtree automatically when opening dir
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden=0
+let NERDTreeShowLineNumbers=1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " keybinds
 let mapleader = " "
 nnoremap <leader>u :UndotreeToggle<CR>:UndotreeFocus<CR>
-nnoremap <leader>q :NERDTreeToggle<CR>
+nnoremap <leader>q :NERDTreeToggle /home/razi/github/<CR>
+
+
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nmap <leader>gi <Plug>(coc-implementation)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 nnoremap <C-p> :GFiles<CR>
+" Coc Binds?
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif

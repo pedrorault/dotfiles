@@ -12,3 +12,8 @@
         create: true
 
 
+- clean: ['~']
+
+- link:
+
+
