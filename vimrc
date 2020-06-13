@@ -31,6 +31,11 @@ autocmd FileType c,cpp  setlocal shiftwidth=4 tabstop=4 smartindent
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
+"lightline config
+"set noshowmode
+"let g:lightline = {
+"      \ 'colorscheme': 'wombat',
+"      \ }
 
 call plug#begin('~/.vim/plugged')
 Plug 'qpkorr/vim-renamer'
@@ -43,6 +48,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ThePrimeagen/vim-be-good'
 
+"Plug 'itchyny/lightline.vim'
 " ==Themes and visual==
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
@@ -51,7 +57,10 @@ call plug#end()
 
 colorscheme gruvbox 
 set background=dark
-
+"C clangd
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ }
 " Nerdtree automatically when opening dir
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
