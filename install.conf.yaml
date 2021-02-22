@@ -17,3 +17,9 @@
 - link:
 
 
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf: tmux.conf
+
+
