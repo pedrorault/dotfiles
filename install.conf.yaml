@@ -10,16 +10,5 @@
     ~/bin:
         path: bin/
         create: true
-    ~/.tmux.conf: tmux
-
-- clean: ['~']
-
-- link:
-
-
-- clean: ['~']
-
-- link:
     ~/.tmux.conf: tmux.conf
-
 
