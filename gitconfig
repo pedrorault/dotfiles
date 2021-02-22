@@ -1,3 +1,5 @@
 [user]
 	email = pedrorault@gmail.com
 	name = pedrorault
+[core]
+	autocrlf = input

@@ -1,5 +1,4 @@
 syntax on
-
 set hidden
 set scrolloff=5
 set noerrorbells
