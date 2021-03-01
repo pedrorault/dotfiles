@@ -11,4 +11,4 @@
         path: bin/
         create: true
     ~/.tmux.conf: tmux.conf
-
+    ~/.zshrc: zshrc
