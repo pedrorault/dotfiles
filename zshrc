@@ -81,7 +81,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git
          tmux
          aws
-
+         z
         )
 
 source $ZSH/oh-my-zsh.sh

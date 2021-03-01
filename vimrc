@@ -24,7 +24,7 @@ set encoding=UTF-8
 set incsearch
 
 "Indentation per language
-autocmd FileType html, css, js setlocal shiftwidth=2 tabstop=2
+autocmd FileType html,css,js setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType c,cpp  setlocal shiftwidth=4 tabstop=4 smartindent
 
