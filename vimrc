@@ -52,10 +52,13 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rbong/vim-crystalline' "Not configured yet
+Plug 'jesseleite/vim-agriculture'
 call plug#end()
 
 colorscheme gruvbox 
 set background=dark
+hi Normal guibg=NONE ctermbg=NONE
+
 "C clangd
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
@@ -79,6 +82,7 @@ nmap <leader>gr <Plug>(coc-references)
 nmap <leader>gi <Plug>(coc-implementation)
 
 nnoremap <C-p> :GFiles<CR>
+nmap <C-[> :RgRaw 
 " Coc Everything so I wont know what made it work
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
